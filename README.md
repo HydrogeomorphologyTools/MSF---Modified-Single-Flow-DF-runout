@@ -1,10 +1,8 @@
-ArcGIS Toolbox implementing debris flow potential propagation from source points following the work by Huggel and colleagues:
+ArcGIS Toolbox implementing debris flow potential propagation from source points following the work by Huggel and colleagues, with these two main references:
 
-Regional-scale GIS-models for assessment of hazards from glacier lake outbursts: evaluation and application in the Swiss Alps
-C. Huggel, A. Kääb, W. Haeberli, and B. Krummenacher
-Natural Hazards and Earth System Sciences (2003)
+Gruber, S., Huggel, C., Pike, R., 2009. Chapter 23 Modelling Mass Movements and Landslide Susceptibility, in: Hengl, T., Reuter, H.I. (Eds.), Developments in Soil Science, Geomorphometry. Elsevier, pp. 527–550. https://doi.org/10.1016/S0166-2481(08)00023-8
 
-https://doi.org/10.5194/nhess-3-647-2003
+Huggel, C., Kääb, A., Haeberli, W., Krummenacher, B., 2003. Regional-scale GIS-models for assessment of hazards from glacier lake outbursts: evaluation and application in the Swiss Alps. Nat. Hazards Earth Syst. Sci. 3, 647–662. https://doi.org/10.5194/nhess-3-647-2003
 
 
 
