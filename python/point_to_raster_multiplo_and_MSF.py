@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 13 10:02:06 2017
+Updated on Thu Feb 27 12:22:31 2025
 
-@author: stefano
+@author: stefano.crema@cnr.it
 """
 # Name: PointToRaster_Ex_02.py
-# Description: Converts point features to a raster dataset.
+# Description: Converts point features to a raster dataset and subsequently run separately MSF retaining in overlapping areas the max pqlim value
 
 #%% Import system modules
 import arcpy
@@ -20,15 +21,15 @@ arcpy.env.overwriteOutput = True
 res = "3m"
 print "Analisys resolution is "+res
 #
-env.workspace = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/shape_source_split/"
-msfdir = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/MSF/" # folder to store single MSF results
-rasterdir = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/raster_source_split"
-rasteralldir = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/raster_source_all"
-pqlimalldir = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/pq_lim_all"
+env.workspace = "C:/test/simulazioni/"+res+"/main_folder/"
+msfdir = "C:/test/simulazioni/"+res+"/MSF/" # folder to store single MSF results
+rasterdir = "C:/test/simulazioni/"+res+"/raster_source_split"
+rasteralldir = "C:/test/simulazioni/"+res+"/raster_source_all"
+pqlimalldir = "C:/test/simulazioni/"+res+"/pq_lim_all"
 #
 #%% Comment this section if the export to single features is not needed
 #
-shp = "E:/PhD/assegno/Pescara_PC/simulazioni/shape/PuntiInizioDF_5m_q.shp"
+shp = "C:/test/simulazioni/shape/PuntiInizioDF.shp"
 #
 #%%
 #Create folder for the analysis, removed at the end
@@ -64,7 +65,7 @@ with arcpy.da.SearchCursor(shp, ["SHAPE@","Id","Source"]) as cursor:
 fcList = arcpy.ListFeatureClasses() # lists the features found in the env.workspace folder
 #
 #
-DTM = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/fill.tif" # provide a default value if unspecified
+DTM = "C:/test/simulazioni/"+res+"/dtm_fill.tif" # provide a default value if unspecified
 extentRaster = Raster(DTM)
 arcpy.env.extent = extentRaster.extent
 #
@@ -77,7 +78,7 @@ valField = "Source"
 assignmentType = "MOST_FREQUENT"
 priorityField = ""
 #
-raster_src_all = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/raster_source_all/ras_src_all"
+raster_src_all = "C:/test/simulazioni/"+res+"/raster_source_all/ras_src_all"
 #
 # Convert shapefile point to raster to create a unique raster to run also in Taudem Avalanche Runout as source file
 arcpy.PointToRaster_conversion(shp,valField, raster_src_all, assignmentType, priorityField, cellSize)
@@ -86,7 +87,7 @@ arcpy.PointToRaster_conversion(shp,valField, raster_src_all, assignmentType, pri
 Output_drop_raster = ""
 fdir = msfdir + "fdir_" + ".tif"
 fdir_deg = msfdir + "fdir_deg_" + ".tif"
-pq_lim_all = "E:/PhD/assegno/Pescara_PC/simulazioni/"+res+"/pq_lim_all/pq_lim_all.tif"
+pq_lim_all = "C:/test/simulazioni/"+res+"/pq_lim_all/pq_lim_all.tif"
 
 # Process: Flow Direction
 arcpy.gp.FlowDirection_sa(DTM, fdir, "NORMAL", Output_drop_raster)
