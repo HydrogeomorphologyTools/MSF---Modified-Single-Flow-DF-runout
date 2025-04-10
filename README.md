@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository provides an **ArcGIS Toolbox** implementing a debris flow potential propagation model from source points, following the Modified Single Flow Direction (MSF) approach based on the work by Huggel and colleagues. The methodology draws primarily from the following key references:
+This repository provides an **ArcGIS Toolbox and a Python script** implementing a debris flow potential propagation model from source points, following the Modified Single Flow Direction (MSF) approach based on the work by Huggel and colleagues. The methodology draws primarily from the following key references:
 
 * Gruber & Huggel (2009) in *Geomorphometry* (Chapter 23)
 * Huggel et al. (2003) in *Natural Hazards and Earth System Sciences*
@@ -13,7 +13,7 @@ The core tool implements the GIS procedures detailed in these references, design
 
 ### Additional Functionality
 
-Beyond the core MSF implementation, supplementary Python scripts are included to enhance usability, particularly when dealing with multiple initiation points:
+Beyond the core MSF implementation, supplementary Python scripts are included to enhance usability, mainly when dealing with multiple initiation points and potentially overlapping flooded/modelled areas:
 
 1.  **Multiple Point Handling:** A script converts multiple input point features into the necessary raster format for the model.
 2.  **Overlap Management:** It runs the MSF model based on inputs derived from these multiple points and ensures that the maximum potential impact value (`pqlim`) is retained in pixels potentially affected by overlapping runouts. This avoids lower values overwriting higher potential impact values from different sources.
@@ -44,7 +44,7 @@ Beyond the core MSF implementation, supplementary Python scripts are included to
     * Parameters
     * Specify the path and name for the output runout simulation raster.
 4.  Run the tool. Monitor progress and check messages in the ArcGIS geoprocessing window/pane.
-5.  Utilize the supplementary Python scripts (potentially run from the command line using ArcGIS's Python, or integrated as separate script tools if configured) for pre-processing multiple source points or cleaning up output directories as needed.
+5.  Utilize the supplementary Python scripts (potentially run from the command line using ArcGIS's Python, or integrated as separate script tools if configured) for pre-processing multiple source points, running the MSF model, and optionally cleaning up output directories as needed.
 
 ## References
 
